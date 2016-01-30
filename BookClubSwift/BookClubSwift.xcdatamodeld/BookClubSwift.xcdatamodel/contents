@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="Book" representedClassName=".Book" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="genre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="publishyear" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="book" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="readers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reader" inverseName="books" inverseEntity="Reader" syncable="YES"/>
+    </entity>
+    <entity name="Comment" representedClassName=".Comment" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="comments" inverseEntity="Book" syncable="YES"/>
+        <relationship name="reader" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Reader" inverseName="comments" inverseEntity="Reader" syncable="YES"/>
+    </entity>
+    <entity name="Reader" representedClassName=".Reader" syncable="YES">
+        <attribute name="isFriend" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="readers" inverseEntity="Book" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="reader" inverseEntity="Comment" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Reader" positionX="-36" positionY="9" width="128" height="105"/>
+        <element name="Book" positionX="0" positionY="63" width="128" height="135"/>
+        <element name="Comment" positionX="27" positionY="108" width="128" height="90"/>
+    </elements>
 </model>
