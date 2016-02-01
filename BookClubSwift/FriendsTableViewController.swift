@@ -7,39 +7,81 @@
 //
 
 import UIKit
+import CoreData
 
-class FriendsTableViewController: UITableViewController {
-
-    override func viewDidLoad() {
+class FriendsTableViewController: UITableViewController
+{
+    var friends = [Reader]()
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        
+        //loadFriends()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        loadFriends()
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+//    {
+//        // #warning Incomplete implementation, return the number of sections
+//        return friends.count
+//    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return friends.count
     }
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("FriendCell", forIndexPath: indexPath)
+        
+        let friend = friends[indexPath.row]
+        
+        print(friend)
 
-        // Configure the cell...
-
+        cell.textLabel?.text = friend.name
+        cell.detailTextLabel?.text = "Number of books: " + String(friend.books?.count)
+        cell.detailTextLabel?.numberOfLines = 0
         return cell
     }
-    */
+    
+    func loadFriends()
+    {
+        let request = NSFetchRequest(entityName: "Reader")
+        let sortByName = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sortByName]
+        let predicate = NSPredicate(format: "isFriend == %@", NSNumber(bool: true))
+        request.predicate = predicate
+        
+        //let error = nil
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let moc = appDelegate.managedObjectContext
+        
+        do
+        {
+            let results = try moc.executeFetchRequest(request)
+            friends = results as! [Reader]
+            //print(friends)
+            print(friends.count)
+            tableView.reloadData()
+        }
+            
+        catch
+        {
+            print("Error occurred")
+        }
+        
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

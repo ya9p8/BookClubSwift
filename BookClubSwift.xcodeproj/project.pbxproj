@@ -19,6 +19,8 @@
 		DB87673C1C5C9A7200066545 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8767361C5C9A7200066545 /* Book.swift */; };
 		DB87673D1C5C9A7200066545 /* Comment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8767371C5C9A7200066545 /* Comment+CoreDataProperties.swift */; };
 		DB87673E1C5C9A7200066545 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8767381C5C9A7200066545 /* Comment.swift */; };
+		DBD2942E1C5C9E4000C76D00 /* friends.json in Resources */ = {isa = PBXBuildFile; fileRef = DBD2942D1C5C9E4000C76D00 /* friends.json */; };
+		DBD294301C5C9F6100C76D00 /* ReaderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2942F1C5C9F6100C76D00 /* ReaderTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		DB8767361C5C9A7200066545 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Book.swift; path = ../Book.swift; sourceTree = "<group>"; };
 		DB8767371C5C9A7200066545 /* Comment+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Comment+CoreDataProperties.swift"; path = "../Comment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DB8767381C5C9A7200066545 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = ../Comment.swift; sourceTree = "<group>"; };
+		DBD2942D1C5C9E4000C76D00 /* friends.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friends.json; sourceTree = "<group>"; };
+		DBD2942F1C5C9F6100C76D00 /* ReaderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +80,11 @@
 				DB8767381C5C9A7200066545 /* Comment.swift */,
 				DB87671C1C5C970F00066545 /* AppDelegate.swift */,
 				DB8767311C5C97AC00066545 /* FriendsTableViewController.swift */,
+				DBD2942F1C5C9F6100C76D00 /* ReaderTableViewController.swift */,
 				DB8767201C5C970F00066545 /* Main.storyboard */,
 				DB8767261C5C970F00066545 /* Assets.xcassets */,
 				DB8767281C5C970F00066545 /* LaunchScreen.storyboard */,
+				DBD2942D1C5C9E4000C76D00 /* friends.json */,
 				DB87672B1C5C970F00066545 /* Info.plist */,
 				DB8767231C5C970F00066545 /* BookClubSwift.xcdatamodeld */,
 			);
@@ -147,6 +153,7 @@
 				DB87672A1C5C970F00066545 /* LaunchScreen.storyboard in Resources */,
 				DB8767271C5C970F00066545 /* Assets.xcassets in Resources */,
 				DB8767221C5C970F00066545 /* Main.storyboard in Resources */,
+				DBD2942E1C5C9E4000C76D00 /* friends.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +168,7 @@
 				DB8767251C5C970F00066545 /* BookClubSwift.xcdatamodeld in Sources */,
 				DB87673D1C5C9A7200066545 /* Comment+CoreDataProperties.swift in Sources */,
 				DB87673C1C5C9A7200066545 /* Book.swift in Sources */,
+				DBD294301C5C9F6100C76D00 /* ReaderTableViewController.swift in Sources */,
 				DB87673B1C5C9A7200066545 /* Book+CoreDataProperties.swift in Sources */,
 				DB87673A1C5C9A7200066545 /* Reader.swift in Sources */,
 				DB87671D1C5C970F00066545 /* AppDelegate.swift in Sources */,
@@ -313,6 +321,7 @@
 				DB8767301C5C970F00066545 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
