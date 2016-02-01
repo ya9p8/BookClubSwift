@@ -31,7 +31,6 @@ class ReaderTableViewController: UITableViewController
         let moc = appDelegate.managedObjectContext
         //let fetchRequest = NSFetchRequest(entityName: "Reader")
         
-        
         loadReaders()
         
         if(readers.count < 1)
@@ -61,8 +60,6 @@ class ReaderTableViewController: UITableViewController
             }
         }
         
-        
-        
     }
     
     
@@ -71,9 +68,9 @@ class ReaderTableViewController: UITableViewController
         let request = NSFetchRequest(entityName: "Reader")
         let sortByName = NSSortDescriptor(key: "name", ascending: true)
         request.sortDescriptors = [sortByName]
-        let predicate = NSPredicate(format: "isFriend == %@", false)
+        //let predicate = NSPredicate(format: "isFriend == %@", false)
         
-        request.predicate = predicate
+        //request.predicate = predicate
         //let error = nil
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -91,6 +88,8 @@ class ReaderTableViewController: UITableViewController
         }
         
     }
+    
+    
     
     
     // MARK: - Table view data source
@@ -113,6 +112,7 @@ class ReaderTableViewController: UITableViewController
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let moc = appDelegate.managedObjectContext
         

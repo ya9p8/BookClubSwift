@@ -1,93 +1,96 @@
 //
-//  FriendsTableViewController.swift
+//  CommentTableViewController.swift
 //  BookClubSwift
 //
-//  Created by Yemi Ajibola on 1/30/16.
+//  Created by Yemi Ajibola on 1/31/16.
 //  Copyright © 2016 Yemi Ajibola. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class FriendsTableViewController: UITableViewController
+class CommentTableViewController: UITableViewController, UITextFieldDelegate
 {
-    var friends = [Reader]()
     
+    var comments = [Comment]()
+    var reader:Reader!
+    var book:Book!
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-    }
-    
-    override func viewDidAppear(animated: Bool)
-    {
-        super.viewDidAppear(animated)
+        loadComments()
         
-        loadFriends()
+        //print(book.title! + " has "+String(book.comments?.count)+" comments")
+
     }
 
+    
     // MARK: - Table view data source
 
     
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return friends.count
+        // #warning Incomplete implementation, return the number of rows
+        return comments.count
     }
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FriendCell", forIndexPath: indexPath)
-        
-        let friend = friends[indexPath.row]
-        
-        //print(friend)
+        let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = friend.name
-        //cell.detailTextLabel?.text = "Number of books: " + String(friend.books?.count)
-        cell.detailTextLabel?.numberOfLines = 0
+        // Configure the cell...
+        let comment = comments[indexPath.row]
+        
+        cell.textLabel?.text = comment.text
+        cell.textLabel?.numberOfLines = 0
+        cell.detailTextLabel?.text = comment.reader?.name
+
         return cell
     }
     
-    func loadFriends()
+    
+    func loadComments()
     {
-        let request = NSFetchRequest(entityName: "Reader")
-        let sortByName = NSSortDescriptor(key: "name", ascending: true)
-        request.sortDescriptors = [sortByName]
-        let predicate = NSPredicate(format: "isFriend == %@", NSNumber(bool: true))
-        request.predicate = predicate
-        
-        //let error = nil
+        comments = book.comments?.allObjects as! [Comment]
+        tableView.reloadData()
+    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let moc = appDelegate.managedObjectContext
         
+        let entity = NSEntityDescription.entityForName("Comment", inManagedObjectContext: moc)
+        let comment = Comment(entity: entity!, insertIntoManagedObjectContext: moc)
+        comment.text = textField.text
+        comment.reader = reader
+        comment.book = book
+        
+        var tempArray = book.comments?.allObjects
+        tempArray?.append(comment)
+        
+        
+        book.comments = NSSet(array: tempArray!)
+        
         do
         {
-            let results = try moc.executeFetchRequest(request)
-            friends = results as! [Reader]
-            //print(friends)
-            print(friends.count)
-            tableView.reloadData()
+            try moc.save()
         }
-            
         catch
         {
-            print("Error occurred")
+            // Error handling
         }
         
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-    {
+        textField.text = ""
         
-        if(segue.identifier == "toBookTVC")
-        {
-            
-            let bookVC = segue.destinationViewController as! BookTableViewController
-            let indexPath = tableView.indexPathForSelectedRow
-
-            bookVC.reader = friends[indexPath!.row]
-        }
+        loadComments()
         
+        return textField.resignFirstResponder()
         
     }
     

@@ -21,6 +21,8 @@
 		DB87673E1C5C9A7200066545 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8767381C5C9A7200066545 /* Comment.swift */; };
 		DBD2942E1C5C9E4000C76D00 /* friends.json in Resources */ = {isa = PBXBuildFile; fileRef = DBD2942D1C5C9E4000C76D00 /* friends.json */; };
 		DBD294301C5C9F6100C76D00 /* ReaderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2942F1C5C9F6100C76D00 /* ReaderTableViewController.swift */; };
+		DBD294361C5EE50900C76D00 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD294351C5EE50900C76D00 /* BookTableViewController.swift */; };
+		DBD294381C5F05B300C76D00 /* CommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD294371C5F05B300C76D00 /* CommentTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		DB8767381C5C9A7200066545 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = ../Comment.swift; sourceTree = "<group>"; };
 		DBD2942D1C5C9E4000C76D00 /* friends.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friends.json; sourceTree = "<group>"; };
 		DBD2942F1C5C9F6100C76D00 /* ReaderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderTableViewController.swift; sourceTree = "<group>"; };
+		DBD294351C5EE50900C76D00 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
+		DBD294371C5F05B300C76D00 /* CommentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 				DB87671C1C5C970F00066545 /* AppDelegate.swift */,
 				DB8767311C5C97AC00066545 /* FriendsTableViewController.swift */,
 				DBD2942F1C5C9F6100C76D00 /* ReaderTableViewController.swift */,
+				DBD294351C5EE50900C76D00 /* BookTableViewController.swift */,
+				DBD294371C5F05B300C76D00 /* CommentTableViewController.swift */,
 				DB8767201C5C970F00066545 /* Main.storyboard */,
 				DB8767261C5C970F00066545 /* Assets.xcassets */,
 				DB8767281C5C970F00066545 /* LaunchScreen.storyboard */,
@@ -166,9 +172,11 @@
 			files = (
 				DB8767391C5C9A7200066545 /* Reader+CoreDataProperties.swift in Sources */,
 				DB8767251C5C970F00066545 /* BookClubSwift.xcdatamodeld in Sources */,
+				DBD294361C5EE50900C76D00 /* BookTableViewController.swift in Sources */,
 				DB87673D1C5C9A7200066545 /* Comment+CoreDataProperties.swift in Sources */,
 				DB87673C1C5C9A7200066545 /* Book.swift in Sources */,
 				DBD294301C5C9F6100C76D00 /* ReaderTableViewController.swift in Sources */,
+				DBD294381C5F05B300C76D00 /* CommentTableViewController.swift in Sources */,
 				DB87673B1C5C9A7200066545 /* Book+CoreDataProperties.swift in Sources */,
 				DB87673A1C5C9A7200066545 /* Reader.swift in Sources */,
 				DB87671D1C5C970F00066545 /* AppDelegate.swift in Sources */,
